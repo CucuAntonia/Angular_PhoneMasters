@@ -1,0 +1,29 @@
+.item{
+    //display: flex;
+    //transform: scale(1.5);
+    width: 200px;
+    height: 200px;
+    box-shadow: 10px 5px 20px turquoise;
+    display: justify-content;
+    margin-left: 50px;
+    //margin-right: 100px;
+    transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    border-radius: 10px;
+
+    
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    }
+
+.item:hover {
+        background-color: turquoise ;
+        opacity: 0.1;
+      }
+    
+
