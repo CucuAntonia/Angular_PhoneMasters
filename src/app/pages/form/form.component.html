@@ -1,3 +1,4 @@
+<!-- <p>form works!</p>
 <div class="Form" [formGroup]="form">
         <mat-form-field appearance="fill">
           <mat-label>Fill form field</mat-label>
@@ -19,4 +20,84 @@
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
             
         </mat-form-field>
-</div>
+</div> -->
+
+ 
+<div mat-dialog-title>
+    <h1>Products Form</h1>
+ </div>
+ <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+ <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" placeholder="Ex. Technical" formControlName="firstName">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Ex. Babaji" formControlName="lastName">
+      </mat-form-field>
+    </div>
+ 
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Ex. test@yahoo.com" formControlName="email">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-radio-group aria-label="Select an option" formControlName="status">
+        <mat-label><b>Status</b></mat-label>
+        <mat-radio-button value="new">New</mat-radio-button>
+        <mat-radio-button value="used">Used</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Aspect</mat-label>
+        <mat-select formControlName="aspect">
+          <mat-option *ngFor="let val of aspect" [value]="val">{{val}}
+
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input matInput placeholder="Ex. iPhone 12" formControlName="prodName">
+      </mat-form-field>
+      
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Price (RON)</mat-label>
+        <input matInput placeholder="Ex. 2500" type="number" formControlName="price">
+      </mat-form-field>
+    </div>
+  </div>
+
+
+
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button>Cancel</button>
+    <button mat-raised-button color="accent" type="submit">Save</button>
+ </div> 
+
+</form>
+
+ 
+     
+
