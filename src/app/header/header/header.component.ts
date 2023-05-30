@@ -21,6 +21,14 @@ export class HeaderComponent implements OnInit {
     this.router.navigate (['inventory']);
   }
 
+  gotoContact(): void {
+    this.router.navigate (['contact']);
+  }
+
+  gotoProducts(): void {
+    this.router.navigate (['products']);
+  }
+
   gotoHome() {
     this.router.navigate([""]);
   }

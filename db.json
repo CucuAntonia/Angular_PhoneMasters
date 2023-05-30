@@ -1,0 +1,87 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "firstName": "Antonia",
+      "lastName": "Cucu",
+      "email": "antonia.ioana02@yahoo.com",
+      "date": "2023-05-28T21:00:00.000Z",
+      "status": "New",
+      "aspect": "As New",
+      "prodName": "Iphone 13 Pro",
+      "price": 4000,
+      "id": 1
+    },
+    {
+      "firstName": "Ioan",
+      "lastName": "Nahoi",
+      "email": "ionutnahoi@gmail.com",
+      "date": "2023-05-22T21:00:00.000Z",
+      "status": "Used",
+      "aspect": "As New",
+      "prodName": "Iphone 12",
+      "price": 3670,
+      "id": 2
+    },
+    {
+      "firstName": "Loredana",
+      "lastName": "Popelea",
+      "email": "popelea.l@yahoo.com",
+      "date": "2023-05-01T21:00:00.000Z",
+      "status": "New",
+      "aspect": "As New",
+      "prodName": "Iphone 14 Plus",
+      "price": 5700,
+      "id": 3
+    },
+    {
+      "firstName": "Marian",
+      "lastName": "Dan",
+      "email": "d.marian@gmail.com",
+      "date": "2023-05-17T21:00:00.000Z",
+      "status": "Used",
+      "aspect": "Good",
+      "prodName": "Iphone 11 MAX",
+      "price": 2650,
+      "id": 4
+    },
+    {
+      "firstName": "Mihail",
+      "lastName": "Daniel",
+      "email": "ddmih@gmail.com",
+      "date": "2023-05-16T21:00:00.000Z",
+      "status": "New",
+      "aspect": "As New",
+      "prodName": "Iphone 11",
+      "price": 3000,
+      "id": 5
+    },
+    {
+      "firstName": "Cristiana",
+      "lastName": "Berza",
+      "email": "criberza@yahoo.com",
+      "date": "2023-04-30T21:00:00.000Z",
+      "status": "Used",
+      "aspect": "Bad",
+      "prodName": "Iphone X",
+      "price": 1700,
+      "id": 6
+    }
+  ]
+}

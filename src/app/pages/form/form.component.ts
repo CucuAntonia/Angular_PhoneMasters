@@ -1,16 +1,16 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { CoreService } from 'src/app/core/core.service';
 import { ItemService } from 'src/app/services/item.service';
-import { Item } from 'src/models/item';
+
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent //implements OnInit
-{
+export class FormComponent implements OnInit {
   form: FormGroup;
   aspect: string[] = [
     'As New',
@@ -20,7 +20,12 @@ export class FormComponent //implements OnInit
     'Very Bad',
   ];
   
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder, 
+    private _item:ItemService, 
+    private _dialogRef:MatDialogRef<FormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private _coreService: CoreService,
+    ) {
     this.form = this._fb.group({
       firstName: '',
       lastName: '',
@@ -33,41 +38,38 @@ export class FormComponent //implements OnInit
 
     });
   }
-  onFormSubmit() {
-    if(this.form.valid)
-      console.log(this.form.value);
+
+  ngOnInit(): void {
+    this.form.patchValue(this.data);
   }
-  // constructor(public dialogRef: MatDialogRef<FormComponent>,
-  //   @Inject(MAT_DIALOG_DATA) public data: string[], private formBuilder: FormBuilder) { }
-  
+  onFormSubmit() {
+    if(this.form.valid) {
+      if(this.data) {
+        this._item.updateProduct(this.data.id, this.form.value).subscribe({
+          next: (val:any) => {
+            this._coreService.openSnackBar('Product updated succesfully');
 
-  // ngOnInit(): void {
-  //     this.createForm();
-  // }
+            this._dialogRef.close(true);
+          },
+          error: (err:any) => {
+            console.error(err);
+          },
+        });
+      } else {
+        this._item.addProduct(this.form.value).subscribe({
+          next: (val:any) => {
+            this._coreService.openSnackBar('Product added succesfully');
 
-  // private createForm(): void {
-  //   this.form = this.formBuilder.group({
-  //     name:[null],
-  //     descriere:[null],
-  //     cantitate:[null]
-  //   });
-  // }
-
-  // private addItem() {
-    
-  // }
-
-  // private updateItem(item: Item): void {
-  //   this.itemService
-  //   window.location.reload();
-  // (err: string) => {
-  //   this.error = err;
-  // }
-  // }
-
-  // onNoClick(): void {
-  //   this.dialogRef.close();
-  // }
+            this._dialogRef.close(true);
+          },
+          error: (err:any) => {
+            console.error(err);
+          },
+        });
+      }
+      
+  }
+}
 }
 
 

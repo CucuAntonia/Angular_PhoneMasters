@@ -8,27 +8,24 @@ import { Item } from 'src/models/item';
 })
 export class ItemService {
 
-  readonly baseUrl = "https://localhost:44385/api/item/"
-  constructor(public httpClient: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
-  getItems(): Observable<Item[]> {
-    return this.httpClient.get(this.baseUrl+"get") as Observable<Item[]>;
-  }
-
-  getItemById(id:number): Observable<Item>{
-    return this.httpClient.get(this.baseUrl + "getItems/" + id) as Observable<Item>;
+  addProduct(data: any): Observable<any> {
+    return this._http.post('http://localhost:3000/products', data);
   }
 
-  createItem(item: Item): Observable<Item> {
-    return this.httpClient.post(this.baseUrl + "getItems/", item) as Observable<Item>;
-  }
-  delete(id:number): Observable<null> {
-    return this.httpClient.delete(this.baseUrl + "delete/" + id) as unknown as Observable<null>;
+  getProductList(): Observable<any> {
+    return this._http.get('http://localhost:3000/products');
   }
 
-  edit(item: Item): Observable<null> {
-    return this.httpClient.put(this.baseUrl + "edit/" + item.id, item) as unknown as Observable<null>;
+  deleteProduct(id:number): Observable<any> {
+    return this._http.delete(`http://localhost:3000/products/${id}`);
   }
+
+  updateProduct(id:number, data: any): Observable<any> {
+    return this._http.put(`http://localhost:3000/products/${id}`, data);
+  }
+
 }
 
 

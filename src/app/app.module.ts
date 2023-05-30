@@ -19,6 +19,14 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ProductsComponent } from './pages/products/products.component';
+
+
 
 
 
@@ -29,9 +37,13 @@ import {MatSelectModule} from '@angular/material/select';
     HomeComponent,
     InventoryComponent,
     FormComponent,
+    ContactComponent,
+    ProductsComponent,
   ],
   imports: [
     FormsModule,
+    MatSnackBarModule,
+    MatTableModule,
     MatSelectModule,
     MatRadioModule,
     MatDatepickerModule,
@@ -48,6 +60,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
